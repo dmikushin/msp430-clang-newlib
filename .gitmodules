@@ -1,0 +1,9 @@
+[submodule "msp430-clang"]
+	path = msp430-clang
+	url = https://github.com/dmikushin/msp430-clang.git
+[submodule "msp430-newlib"]
+	path = msp430-newlib
+	url = https://github.com/dmikushin/msp430-newlib.git
+[submodule "binutils-gdb"]
+	path = binutils-gdb
+	url = git://sourceware.org/git/binutils-gdb.git

@@ -54,6 +54,7 @@ cd newlib-cygwin
 mkdir build
 cd build
 ../configure --prefix=$(pwd)/../../install --target=msp430-elf AR_FOR_TARGET=llvm-ar RANLIB_FOR_TARGET="llvm-ar s" CC_FOR_TARGET=clang
+make -j48
 make install
 ```
 
