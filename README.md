@@ -38,21 +38,6 @@ export PATH=$(pwd)/install/bin:$PATH
 
 ## Hello, world
 
-Currently requires changing `ld.ldd` to GNU ld:
-
-```
---- a/test/gdbsim-aes/Makefile
-+++ b/test/gdbsim-aes/Makefile
-@@ -1,6 +1,7 @@
--CC=~/msp430-clang/build/bin/clang
--LD=~/msp430-clang/build/bin/ld.lld
--GDB=/opt/msp430/bin/msp430-elf-gdb
-+CC=clang
-+#LD=ld.lld
-+LD=msp430-elf-ld
-+GDB=msp430-elf-gdb
-```
-
 ```
 cd access-softek
 export PATH=$(pwd)/install/bin:$PATH
@@ -68,7 +53,8 @@ git clone git://sourceware.org/git/newlib-cygwin.git
 cd newlib-cygwin
 mkdir build
 cd build
-../configure --prefix=$(pwd)/../install --target=msp430-elf AR_FOR_TARGET=msp430-elf-ar AS_FOR_TARGET=msp430-elf-as LD_FOR_TARGET=msp430-elf-ld RANLIB_FOR_TARGET=msp430-elf-ranlib CC_FOR_TARGET="clang -ffreestanding --target=msp430-elf -ccc-gcc-name msp430-elf-gcc"
+../configure --prefix=$(pwd)/../../install --target=msp430-elf AR_FOR_TARGET=llvm-ar RANLIB_FOR_TARGET="llvm-ar s" CC_FOR_TARGET=clang
+make install
 ```
 
 ## ChibiOS testing
