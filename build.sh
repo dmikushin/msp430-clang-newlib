@@ -17,7 +17,7 @@ cd $ROOT && \
 cd binutils-gdb && \
 mkdir -p build && \
 cd build && \
-../configure --prefix=$ROOT/install --enable-sim-msp430 && \
+../configure --prefix=$ROOT/install --target=msp430-elf --enable-sim-msp430 && \
 make -j48 && \
 make install && \
 export PATH=$ROOT/install/bin:$PATH && \
