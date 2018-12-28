@@ -28,4 +28,13 @@ mkdir -p build && \
 cd build && \
 ../configure --prefix=$ROOT/install --target=msp430-elf AR_FOR_TARGET=llvm-ar RANLIB_FOR_TARGET="llvm-ar s" CC_FOR_TARGET=clang && \
 make -j48 && \
+make install && \
+\
+cd $ROOT && \
+cd msp430-compiler-rt && \
+mkdir -p build && \
+cd build && \
+cmake -DBUILD_SHARED_LIBS=0 -DCMAKE_BUILD_TYPE=Debug -DLLVM_DEFAULT_TARGET_TRIPLE=msp430-elf -DLLVM_TARGETS_TO_BUILD=MSP430 -DCMAKE_INSTALL_PREFIX=$ROOT/install -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY -DCOMPILER_RT_BAREMETAL_BUILD=TRUE .. && \
+make -j48 && \
 make install
+

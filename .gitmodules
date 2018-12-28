@@ -7,3 +7,6 @@
 [submodule "binutils-gdb"]
 	path = binutils-gdb
 	url = git://sourceware.org/git/binutils-gdb.git
+[submodule "msp430-compiler-rt"]
+	path = msp430-compiler-rt
+	url = https://github.com/dmikushin/msp430-compiler-rt.git
